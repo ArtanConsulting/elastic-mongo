@@ -1,2 +1,4 @@
 datadir?/*
 scripts/mongo-connector-installed
+.idea
+docker/volumes/mongo

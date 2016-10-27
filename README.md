@@ -12,8 +12,13 @@
 
 git clone https://github.com/shoppinpal/elastic-mongo.git
 cd elastic-mongo
-docker-compose up -d  # If you skip -d, then the entire clusted will go down when
-                      # mongosetup and elasticsearch-river-setup are done.
+docker-compose up -d  # `-d` for detached mode is optional
+docker-compose ps     # If any process exits with a non-zero state then you need to repeat
+                      # Ideally, `Exit 0` is what you want to see
+                      # for elasticmongo_mongosetup_1,
+                      # and elasticmongo_disabledisktreshold_1
+docker-compose down   # If you have a bad start and you need to restart from the beginning
+                      # or if you simply want to tear it all down because you're done
 ```
 
 Now you have Elasticsearch and MongoDB configured with mongo-connector.
@@ -37,6 +42,11 @@ elasticmongo_mongo3_1       /usr/bin/mongod --replSet   Up                      
 elasticmongo_mongosetup_1   /scripts/setup.sh           Exit 0                                                
 elasticmongo_verify_1       /scripts/query.sh           Up                          27017/tcp
 
+```
+
+**Elasticsearch in browser**
+```
+http://localhost:9200/_plugin/head/
 ```
 
 **Elasticsearch API**
