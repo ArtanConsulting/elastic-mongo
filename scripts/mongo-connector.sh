@@ -5,6 +5,7 @@ ES=`ping -c 1 elasticsearch | head -1  | cut -d "(" -f 2 | cut -d ")" -f 1`
 
 
 pip install mongo-connector
+pip install elastic-doc-manager
 touch /scripts/mongo-connector-installed
 
 printf "\n\nWaiting for MongoDB to start\n"
