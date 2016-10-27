@@ -8,7 +8,8 @@ services:
       - "27018:27017"
       - "28018:28017"
     restart: always
-
+    volumes:
+      - ./docker/volumes/mongo/3:/data/db:rw
   mongo2:
     hostname: mongo2
     image: mongo:latest
@@ -17,6 +18,8 @@ services:
       - "27019:27017"
       - "28019:28017"
     restart: always
+    volumes:
+      - ./docker/volumes/mongo/2:/data/db:rw
 
   mongo1:
     hostname: mongo1
@@ -29,6 +32,8 @@ services:
       - mongo2
       - mongo3
     restart: always
+    volumes:
+      - ./docker/volumes/mongo/1:/data/db:rw
 
   elasticsearch:
     hostname: elasticsearch
