@@ -37,7 +37,7 @@ services:
 
   elasticsearch:
     hostname: elasticsearch
-    image: stabenfeldt/elasticsearch-marvel
+    image: elasticsearch:1
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -47,7 +47,9 @@ services:
       - mongo3
     volumes:
       - ./elasticsearch/logging.yml:/etc/elasticsearch/logging.yml
+      - ./elasticsearch/docker-entrypoint-es1-plugins.sh:/apps/docker-entrypoint-es1-plugins.sh
     restart: always
+    entrypoint: /apps/docker-entrypoint-es1-plugins.sh
 
   # This configures the MongoDB replicaset
   mongosetup:
