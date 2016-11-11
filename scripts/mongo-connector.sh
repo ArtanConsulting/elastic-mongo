@@ -5,7 +5,7 @@ ES=`ping -c 1 elasticsearch | head -1  | cut -d "(" -f 2 | cut -d ")" -f 1`
 
 
 pip install mongo-connector
-pip install elastic-doc-manager
+pip install elastic2-doc-manager
 apt-get update && apt-get install -y curl
 touch /scripts/mongo-connector-installed
 
