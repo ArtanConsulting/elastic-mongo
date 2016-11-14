@@ -17,4 +17,4 @@ done
 echo "MongoDB has started!"
 
 echo "\n\nStarting mongo-connector.."
-mongo-connector --auto-commit-interval=5 -m mongo1:27017 -t elasticsearch:9200 -v -d elastic_doc_manager --stdout
+mongo-connector --auto-commit-interval=5 -m mongo1:27017 -t elasticsearch:9200 -v -d elastic2_doc_manager --stdout
