@@ -46,6 +46,7 @@ services:
       - mongo2
       - mongo3
     volumes:
+      - ./docker/volumes/esdata:/usr/share/elasticsearch/data:rw
       - ./elasticsearch/logging.yml:/etc/elasticsearch/logging.yml
       - ./elasticsearch/docker-entrypoint-es1-plugins.sh:/apps/docker-entrypoint-es1-plugins.sh
     restart: always
