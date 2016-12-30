@@ -73,6 +73,7 @@ services:
   # https://github.com/10gen-labs/mongo-connector
   connector:
    image: python:latest
+   restart: always
    depends_on:
      - mongo1
      - mongo2
